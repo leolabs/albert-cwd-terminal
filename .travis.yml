@@ -1,0 +1,15 @@
+language: python
+python:
+    - "2.7"
+
+script: true
+before_deploy: sed -i.bak 's/\[version\]/'"$TRAVIS_BRANCH-$TRAVIS_COMMIT"'/g' info.plist && zip -rv "$TRAVIS_REPO_SLUG.alfredworkflow" *
+
+deploy:
+  provider: releases
+  api_key:
+    secure: $GITHUB_TOKEN
+  file: "$TRAVIS_REPO_SLUG.alfredworkflow"
+  skip_cleanup: true
+  on:
+    tags: true

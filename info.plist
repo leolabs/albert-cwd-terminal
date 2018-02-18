@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>org.leolabs.alfred.open-terminal</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>230275D0-6737-497E-9C57-CAF1AA905279</key>
+		<array/>
+		<key>3D09324A-4E29-4E6B-8463-6BF2535E34A4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>230275D0-6737-497E-9C57-CAF1AA905279</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Leo Bernard</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Open Terminal in current folder</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>tell application "Finder"
+    set finderWindow to window 1
+    set currentPath to (quoted form of POSIX path of (target of finderWindow as alias))
+    tell application "Terminal"
+        activate
+        tell window 1
+            do script "cd " &amp; currentPath &amp; " &amp;&amp; clear"
+        end tell
+    end tell
+end tell</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>230275D0-6737-497E-9C57-CAF1AA905279</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tm</string>
+				<key>subtext</key>
+				<string>Opens a new terminal in current folder</string>
+				<key>text</key>
+				<string>Open Terminal</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>3D09324A-4E29-4E6B-8463-6BF2535E34A4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>230275D0-6737-497E-9C57-CAF1AA905279</key>
+		<dict>
+			<key>xpos</key>
+			<integer>240</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>3D09324A-4E29-4E6B-8463-6BF2535E34A4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>[version]</string>
+	<key>webaddress</key>
+	<string>https://leolabs.org</string>
+</dict>
+</plist>
