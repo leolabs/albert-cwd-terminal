@@ -3,13 +3,13 @@ python:
     - "2.7"
 
 script: true
-before_deploy: sed -i.bak 's/\[version\]/'"$TRAVIS_BRANCH"'/g' info.plist && zip -rv "$TRAVIS_REPO_SLUG.alfredworkflow" *
+before_deploy: sed -i.bak 's/\[version\]/'"$TRAVIS_BRANCH"'/g' info.plist && zip -rv "cwd-terminal.alfredworkflow" *
 
 deploy:
   provider: releases
   api_key:
     secure: $GITHUB_TOKEN
-  file: "$TRAVIS_REPO_SLUG.alfredworkflow"
+  file: cwd-terminal.alfredworkflow
   skip_cleanup: true
   on:
     tags: true
